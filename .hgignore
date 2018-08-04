@@ -1,0 +1,17 @@
+lib_managed
+project/boot
+project/build/target
+target
+.*\.DS_Store
+.*\.zip
+.iml
+.ipr
+.iws
+.idea*
+.classpath
+.project
+.cache
+.idea_modules
+.idea
+sbtboot
+ivyrepo
