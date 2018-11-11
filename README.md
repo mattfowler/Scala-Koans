@@ -1,4 +1,6 @@
-![Scala](resources/scala.png =250x) # Scala Koans  
+ # Scala Koans ![Scala](resources/scala.png)
+ 
+ <img src="resources/scaka.png" width="48">  
 
 Learning Scala by Example
 
