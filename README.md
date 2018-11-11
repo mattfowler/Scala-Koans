@@ -1,8 +1,6 @@
- # Scala Koans ![Scala](resources/scala.png)
- 
- <img src="resources/scala.png" width="48">  
+ # Scala Koans <img src="resources/scala.png" width="48">  
 
-Learning Scala by Example
+### Learning Scala by Example
 
 Designed to work with later versions of Scala / SBT / Scalatest.
 
