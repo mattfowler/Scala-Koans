@@ -1,17 +1,17 @@
 package org.functionalkoans.forscala.support
 
 import org.scalatest._
-import org.scalatest.events.{Event, TestFailed, TestIgnored, TestPending}
+import org.scalatest.events.{Event, TestFailed, TestPending}
 import org.scalatest.exceptions.TestPendingException
 import org.scalatest.matchers.Matcher
 
-trait KoanSuite extends FunSuite with Matchers {
+trait KoanSuite extends FunSuite with CancelAfterFailure with Matchers {
 
-  def koan(name : String)(fun: => Unit) { test(name.stripMargin('|'))(fun) }
+  def koan(name: String)(fun: => Unit) {
+    test(name.stripMargin('|'))(fun)
+  }
 
-  def meditate() = pending
-
-  def  __ : Matcher[Any] = {
+  def __ : Matcher[Any] = {
     throw new TestPendingException
   }
 
@@ -19,33 +19,28 @@ trait KoanSuite extends FunSuite with Matchers {
     override def toString = "___"
   }
 
-  private class ReportToTheMaster(other: Reporter) extends Reporter {
-    var failed = false
-    def failure(event: Master.HasTestNameAndSuiteName) {
-      failed = true
-      info("*****************************************")
-      info("*****************************************")
-      info("")
-      info("")
-      info("")
-      info(Master.studentFailed(event))
-      info("")
-      info("")
-      info("")
-      info("*****************************************")
-      info("*****************************************")
+  override def runTests(testName: Option[String], args: Args): Status = {
+    class KoanReporter(wrappedReporter: Reporter) extends Reporter {
+
+      override def apply(event: Event): Unit = {
+        event match {
+          case _: TestFailed => args.stopper.requestStop()
+          case _: TestPending => args.stopper.requestStop()
+          case _ =>
+        }
+        wrappedReporter(event)
+      }
     }
 
-    def apply(event: Event) {
-      event match {
-        case e: TestIgnored => failure(event.asInstanceOf[Master.HasTestNameAndSuiteName])
-        case e: TestFailed => failure(event.asInstanceOf[Master.HasTestNameAndSuiteName])
-        case e: TestPending => failure(event.asInstanceOf[Master.HasTestNameAndSuiteName])
-        case _ => other(event)
-      }
+    testName match {
+      case Some(name) => runTest(name, args)
+      case None =>
+        val koanReporter = new KoanReporter(args.reporter)
+        val results = testNames.toStream.map(test => runTest(test, args.copy(reporter = koanReporter)))
+                               .takeWhile(status => status.succeeds())
 
+        if (results.length == testNames.size) SucceededStatus else FailedStatus
     }
   }
-
 
 }
