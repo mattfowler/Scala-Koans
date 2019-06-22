@@ -1,0 +1,8 @@
+version: "3.3"
+
+services:
+  koans:
+    container_name: scala-koans
+    build: .
+    volumes:
+      - ./src:/src
