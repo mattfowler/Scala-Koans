@@ -2,17 +2,18 @@ package org.functionalkoans.forscala
 
 import support.KoanSuite
 
+/**
+  * Lesson 2 - About val and var
+  *
+  * In this lesson we'll take a look at how to create values and variables in Scala.
+  * Values are created with the val keyword. They are immutable and cannot be changed
+  * once they are assigned to.  Variables can be changed once they are created.
+  *
+  * In the Scala world we prefer immutability, so we will almost always use val going forward.
+  */
 class AboutValAndVar extends KoanSuite {
 
-  koan("Vars are variables, and may be reassigned") {
-    var a = 5
-    a should be(10)   //Fix this.
-
-    a = 7
-    a should be(__)
-  }
-
-  koan("vals are values, and may not be reassigned, analogous to final in Java") {
+  koan("Vals are values and may not be reassigned") {
     val a = 5
     a should be(__)
 
@@ -21,37 +22,43 @@ class AboutValAndVar extends KoanSuite {
     // a should be (7)
   }
 
-  koan("All vals and var types are inferred by default, but you can add the type explicitly") {
-    val a:Int = 10
-    var b:String = "Hello" //NOTE: vars are not preferred in the Scala world
-    b = b + " " + 10
-    b should be (__)
+  koan("Vars are variables and may be reassigned") {
+    var a = 5
+    a = 7
+    a should be(__)
   }
 
-  koan("If you want to include a space in your variable or value use backticks") {
-    val `my greatest gift in dollars` = 500
-    (`my greatest gift in dollars` + 30) should be (__) //Whoa!
+  koan("Types are inferred by default, but you can add the type for clarity") {
+    val ten: Int = 10
+    val hello: String = "Hello"
+    val message: String = hello + " " + ten
+    message should be(__)
   }
 
-  koan("Any strange characters that you wish to use in a variable or value can be used after an underscore") {
-    val isThisMySalaryPerYear_? = 50000
-    val thisShouldBeMyRaise_! = isThisMySalaryPerYear_? + 50000
-    thisShouldBeMyRaise_! should be (__)
+  koan("A val can be assigned from a multi-line expression if they are enclosed in {}") {
+    val myInteger = {
+      val a = 1
+      val b = 2
+      a + b
+    }
+    myInteger should be(__)
   }
 
-  koan("Backticks can also be used to spite your co-workers and send them into a spiral of confusion and agony!") {
-    val `void` = 100
-    val `false` = true
-    val `return` = 90
+  koan("A lazy val will not evaluated until it is called and is only evaluated once") {
+    var timesCalled = 0
+    val lazyInt = {
+      timesCalled = timesCalled + 1
+      19
+    }
 
-    (if (`false`) `void` else `return`) should be(__)
-  }
+    timesCalled should be(__)
 
-  koan("A lazy val is assignment that will not evaluated until it is called. Note there is no lazy var") {
-    var history = ""
-    lazy val a = {history = history + "5"; 19}
-    history should be(__)
-    a should be (__)
-    history should be(__)
+    lazyInt should be(19)
+
+    timesCalled should be(__)
+
+    println(lazyInt) // call lazy a second time
+
+    timesCalled should be(__)
   }
 }
