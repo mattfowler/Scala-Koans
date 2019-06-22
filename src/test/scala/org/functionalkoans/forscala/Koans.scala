@@ -10,6 +10,7 @@ class Koans extends Sequential {
     IndexedSeq(
       new AboutAsserts,
       new AboutValAndVar,
+      new AboutFunctions,
       new AboutConstructors,
       new AboutTuples,
       new AboutLists,
