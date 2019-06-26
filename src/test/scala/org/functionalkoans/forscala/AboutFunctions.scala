@@ -3,7 +3,7 @@ package org.functionalkoans.forscala
 import org.functionalkoans.forscala.support.KoanSuite
 
 /**
-  * Lesson 3 - About functions
+  * Lesson 4 - About functions
   *
   * Scala is a functional language, so functions are important! In Scala we can create functions
   * a few ways.  The first is named functions which we create with the def keyword and have a name
@@ -22,7 +22,7 @@ class AboutFunctions extends KoanSuite {
     add(2, 2) should be(__)
   }
 
-  koan("An anonymous function is defined by parameter => returnValue syntax") {
+  koan("An anonymous function is defined by 'parameter => function definition' syntax") {
     val addOne = (x: Int) => x + 1
 
     addOne(1) should be(__)
