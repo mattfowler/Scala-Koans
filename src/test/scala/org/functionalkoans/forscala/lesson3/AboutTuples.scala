@@ -1,7 +1,8 @@
-package org.functionalkoans.forscala
+package org.functionalkoans.forscala.lesson3
 
-import support.KoanSuite
 import java.util.Date
+
+import org.functionalkoans.forscala.support.KoanSuite
 
 /**
   * Lesson 3 - About Tuples

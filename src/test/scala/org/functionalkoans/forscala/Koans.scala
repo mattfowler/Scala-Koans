@@ -1,5 +1,11 @@
 package org.functionalkoans.forscala
 
+import org.functionalkoans.forscala.lesson1.AboutAsserts
+import org.functionalkoans.forscala.lesson2.AboutValAndVar
+import org.functionalkoans.forscala.lesson3.AboutTuples
+import org.functionalkoans.forscala.lesson4.AboutBasicCollections
+import org.functionalkoans.forscala.lesson5.AboutFunctions
+import org.functionalkoans.forscala.lesson6.AboutFlowControl
 import org.functionalkoans.forscala.support.KoanSuite
 import org.scalatest.Sequential
 
@@ -11,7 +17,9 @@ class Koans extends Sequential {
       new AboutAsserts,
       new AboutValAndVar,
       new AboutTuples,
+      new AboutBasicCollections,
       new AboutFunctions,
+      new AboutFlowControl,
       new AboutConstructors,
       new AboutLists,
       new AboutMaps,

@@ -1,7 +1,7 @@
-package org.functionalkoans.forscala
+package org.functionalkoans.forscala.lesson1
 
+import org.functionalkoans.forscala.support.KoanSuite
 import org.scalatest.Matchers
-import support.KoanSuite
 
 /**
   * Lesson 1 - About Asserts

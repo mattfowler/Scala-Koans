@@ -1,6 +1,6 @@
-package org.functionalkoans.forscala
+package org.functionalkoans.forscala.lesson2
 
-import support.KoanSuite
+import org.functionalkoans.forscala.support.KoanSuite
 
 /**
   * Lesson 2 - About val and var

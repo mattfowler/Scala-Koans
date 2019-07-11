@@ -1,9 +1,9 @@
-package org.functionalkoans.forscala
+package org.functionalkoans.forscala.lesson5
 
 import org.functionalkoans.forscala.support.KoanSuite
 
 /**
-  * Lesson 4 - About functions
+  * Lesson 5 - About functions
   *
   * Scala is a functional language, so functions are important! In Scala we can create functions
   * a few ways.  The first is named functions which we create with the def keyword and have a name
