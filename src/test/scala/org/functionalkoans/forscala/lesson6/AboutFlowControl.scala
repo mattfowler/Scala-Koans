@@ -34,7 +34,6 @@ class AboutFlowControl extends KoanSuite {
   }
 
   koan("A for expression can loop over a range of values using 'start to end' syntax") {
-
     var count = 0
     for (value <- 1 to 5) {
       count = count + value
