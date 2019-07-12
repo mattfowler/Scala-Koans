@@ -18,4 +18,4 @@ Simply run `docker-compose up`
 
 Ensure that you have Scala and SBT installed on your machine.  From the root project directory run:
  
- `sbt "~testOnly org.functionalkoans.forscala.Koans"`
+`sbt "~testOnly org.functionalkoans.forscala.Koans"`

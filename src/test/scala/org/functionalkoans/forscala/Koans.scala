@@ -33,7 +33,6 @@ class Koans extends Sequential {
       new AboutHigherOrderFunctions,
       new AboutPartiallyAppliedFunctions,
       new AboutPartialFunctions,
-      new AboutForExpressions,
       new AboutEnumerations,
       new AboutEmptyValues,
       new AboutParentClasses,
