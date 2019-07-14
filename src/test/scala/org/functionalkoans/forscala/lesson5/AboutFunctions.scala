@@ -39,7 +39,7 @@ class AboutFunctions extends KoanSuite {
     // note we can omit curly braces if the function is one line.
     def multiply(x: Int, y: Int) = x * y
 
-    // Note the type is now (Int, Int) => , because the function takes two ints
+    // Note the type is now (Int, Int) => Int, because the function takes two ints
     // and returns one
     val multiplyValue: (Int, Int) => Int = multiply
 
