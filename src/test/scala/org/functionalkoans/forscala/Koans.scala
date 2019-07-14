@@ -6,6 +6,7 @@ import org.functionalkoans.forscala.lesson3.AboutTuples
 import org.functionalkoans.forscala.lesson4.AboutBasicCollections
 import org.functionalkoans.forscala.lesson5.AboutFunctions
 import org.functionalkoans.forscala.lesson6.AboutFlowControl
+import org.functionalkoans.forscala.lesson7.AboutCollectionsOperations
 import org.functionalkoans.forscala.support.KoanSuite
 import org.scalatest.Sequential
 
@@ -20,6 +21,7 @@ class Koans extends Sequential {
       new AboutBasicCollections,
       new AboutFunctions,
       new AboutFlowControl,
+      new AboutCollectionsOperations,
       new AboutConstructors,
       new AboutLists,
       new AboutMaps,
