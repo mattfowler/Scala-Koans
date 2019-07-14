@@ -14,10 +14,10 @@ import org.scalatest.Matchers
   * in with the correct value to make the test pass.  A test will show as 'pending' until you
   * do so.
   *
-  * Sometimes we will give you a test that is failing and ask you to make it pass. In this case
-  * the test will fail and say 'TestFailedException' until you make the code pass.
+  * Sometimes we will give you a test that with an already written assertion.  In this case there will be a block
+  * of code with a ? in it.  This is your cue to provide the code that will make the assertion pass.
   *
-  * Usually we'll use Scalatest's should matchers for this. Should matchers take the form of:
+  * We'll use Scalatest's should matchers for this. Should matchers take the form of:
   *
   * actualValue should be(expectedValue)
   *
@@ -28,8 +28,10 @@ class AboutAsserts extends KoanSuite with Matchers {
     true should be(__) // should be true
   }
 
-  koan("Sometimes we present you with a failing test that you should make pass") {
-    4 should be (3)
+  koan("We can fill in a ? to make an expected assertion pass") {
+    val one: Int = ?
+
+    one should be(1)
   }
 
 }
