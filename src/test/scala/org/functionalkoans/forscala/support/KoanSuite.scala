@@ -15,6 +15,10 @@ trait KoanSuite extends FunSuite with CancelAfterFailure with Matchers {
     throw new TestPendingException
   }
 
+  def ? : Nothing = {
+    throw new TestPendingException
+  }
+
   protected class ___ extends Exception {
     override def toString = "___"
   }
