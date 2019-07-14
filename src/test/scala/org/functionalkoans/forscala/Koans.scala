@@ -26,7 +26,6 @@ class Koans extends Sequential {
       new AboutLists,
       new AboutMaps,
       new AboutSets,
-      new AboutSequencesAndArrays,
       new AboutOptions,
       new AboutPatternMatching,
       new AboutCaseClasses,
