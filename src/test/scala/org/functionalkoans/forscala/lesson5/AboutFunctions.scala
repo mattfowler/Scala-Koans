@@ -22,6 +22,15 @@ class AboutFunctions extends KoanSuite {
     add(2, 2) should be(__)
   }
 
+  koan("A function may have default arguments") {
+    def add(x: Int, y: Int, z: Int = 1): Int = {
+      x + y + z
+    }
+
+    add(2, 2) should be(__)
+    add(2, 2, 2) should be(__)
+  }
+
   koan("An anonymous function is defined by 'parameter => function definition' syntax") {
     val addOne = (x: Int) => x + 1
 
