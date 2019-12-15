@@ -19,6 +19,10 @@ trait KoanSuite extends FunSuite with CancelAfterFailure with Matchers {
     throw new TestPendingException
   }
 
+  def ?? : Option[Any] = {
+    throw new TestPendingException
+  }
+
   protected class ___ extends Exception {
     override def toString = "___"
   }

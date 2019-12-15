@@ -36,13 +36,10 @@ class Koans extends Sequential {
       new AboutEmptyValues,
       new AboutParentClasses,
       new AboutNamedAndDefaultArguments,
-      new AboutInfixPrefixAndPostfixOperators,
       new AboutInfixTypes,
       new AboutTypeSignatures,
       new AboutTraits,
-      new AboutPreconditions,
       new AboutUniformAccessPrinciple,
       new AboutImplicits,
-      new AboutInteroperability,
     )
 }
