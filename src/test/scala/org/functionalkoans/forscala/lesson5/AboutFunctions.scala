@@ -3,14 +3,18 @@ package org.functionalkoans.forscala.lesson5
 import org.functionalkoans.forscala.support.KoanSuite
 
 /**
-  * Lesson 5 - About functions
-  *
-  * Scala is a functional language, so functions are important! In Scala we can create functions
-  * a few ways.  The first is named functions which we create with the def keyword and have a name
-  * we can use to call them.  The second is anonymous functions which have no name.
-  * We can pass around anonymous functions to other functions as parameters.
-  *
-  */
+ * Lesson 5 - About functions
+ *
+ * Scala is a functional language, so functions are important! In Scala we can create functions
+ * a few ways.  The first is named functions which we create with the def keyword and have a name
+ * we can use to call them.  The second is anonymous functions which have no name.
+ * We can pass around anonymous functions to other functions as parameters.
+ *
+ * We can also have default values for function arguments. These are useful when we have an argument which
+ * does not vary much when we call it. In addition we can have functions with variable length arguments. This is
+ * useful for when we don't know how many arguments we will have in our argument list.
+ *
+ */
 class AboutFunctions extends KoanSuite {
 
 
@@ -31,6 +35,16 @@ class AboutFunctions extends KoanSuite {
     add(2, 2, 2) should be(__)
   }
 
+  koan("""A function may have repeated parameters. These are also known as vararg functions because
+                  the size of the argument list can vary.""") {
+
+    // note we can omit curly braces if the function is one line.
+    def concatenateStrings(strings: String*): String = strings.mkString(" ")
+
+    concatenateStrings("hi", "there") should be(__)
+    concatenateStrings("hi", "there", "Fred") should be("__")
+  }
+
   koan("An anonymous function is defined by 'parameter => function definition' syntax") {
     val addOne = (x: Int) => x + 1
 
@@ -45,7 +59,6 @@ class AboutFunctions extends KoanSuite {
   }
 
   koan("We can assign a named function to a value") {
-    // note we can omit curly braces if the function is one line.
     def multiply(x: Int, y: Int) = x * y
 
     // Note the type is now (Int, Int) => Int, because the function takes two ints
