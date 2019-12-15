@@ -1,7 +1,7 @@
 FROM openjdk:11.0.2
 
-ENV SCALA_VERSION 2.12.8
-ENV SBT_VERSION 1.2.8
+ENV SCALA_VERSION 2.13.1
+ENV SBT_VERSION 1.3.5
 
 COPY ./project/build.properties ./project/
 COPY ./build.sbt .
