@@ -3,9 +3,11 @@ package org.functionalkoans.forscala.support
 import org.scalatest._
 import org.scalatest.events.{Event, TestFailed, TestPending}
 import org.scalatest.exceptions.TestPendingException
+import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.Matcher
+import org.scalatest.matchers.should.Matchers
 
-trait KoanSuite extends FunSuite with CancelAfterFailure with Matchers {
+trait KoanSuite extends AnyFunSuite with CancelAfterFailure with Matchers {
 
   def koan(name: String)(fun: => Unit) {
     test(name.stripMargin('|'))(fun)
