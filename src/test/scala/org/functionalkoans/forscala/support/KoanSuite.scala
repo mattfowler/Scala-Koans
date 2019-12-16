@@ -46,7 +46,8 @@ trait KoanSuite extends AnyFunSuite with CancelAfterFailure with Matchers {
       case Some(name) => runTest(name, args)
       case None =>
         val koanReporter = new KoanReporter(args.reporter)
-        val results = testNames.toStream.map(test => runTest(test, args.copy(reporter = koanReporter)))
+        val results = testNames.to(LazyList)
+                               .map(test => runTest(test, args.copy(reporter = koanReporter)))
                                .takeWhile(status => status.succeeds())
 
         if (results.length == testNames.size) SucceededStatus else FailedStatus
